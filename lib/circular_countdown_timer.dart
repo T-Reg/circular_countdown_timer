@@ -97,6 +97,7 @@ class CircularCountDownTimer extends StatefulWidget {
     required this.duration,
     required this.fillColor,
     required this.ringColor,
+    required this.centerWidget,
     this.timeFormatterFunction,
     this.backgroundColor,
     this.fillGradient,
@@ -117,7 +118,6 @@ class CircularCountDownTimer extends StatefulWidget {
     this.autoStart = true,
     this.textFormat,
     this.controller,
-    this.centerWidget,
   }) : assert(initialDuration <= duration);
 
   @override
