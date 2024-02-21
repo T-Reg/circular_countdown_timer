@@ -331,17 +331,20 @@ Widget build(BuildContext context) {
                   ),
                 ),
               ),
-              Align(
-                alignment: FractionalOffset.center,
-                child: Text(
-                  time,
-                  style: widget.textStyle ??
-                      const TextStyle(
-                        fontSize: 16.0,
-                        color: Colors.black,
-                      ),
-                  textAlign: widget.textAlign,
-                ),
+              Container(
+                margin: const EdgeInsets.all(40),
+                child: Align(
+                  alignment: FractionalOffset.center,
+                  child: Text(
+                    time,
+                    style: widget.textStyle ??
+                        const TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.black,
+                        ),
+                    textAlign: widget.textAlign,
+                  ),
+                )
               )
             ],
           );
