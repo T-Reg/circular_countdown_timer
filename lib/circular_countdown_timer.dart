@@ -289,61 +289,66 @@ Widget build(BuildContext context) {
         child: AnimatedBuilder(
           animation: _controller!,
           builder: (context, child) {
-            return Align(
-              child: AspectRatio(
-                aspectRatio: 1.0,
-                child: Stack(
-                  children: <Widget>[
-                    Positioned.fill(
-                      child: CustomPaint(
-                        painter: CustomTimerPainter(
-                          animation: _countDownAnimation ?? _controller,
-                          fillColor: widget.fillColor,
-                          fillGradient: widget.fillGradient,
-                          ringColor: widget.ringColor,
-                          ringGradient: widget.ringGradient,
-                          strokeWidth: widget.strokeWidth,
-                          strokeCap: widget.strokeCap,
-                          isReverse: widget.isReverse,
-                          isReverseAnimation: widget.isReverseAnimation,
-                          backgroundColor: widget.backgroundColor,
-                          backgroundGradient: widget.backgroundGradient,
+          return Column(
+            children: [
+              Align(
+                child: AspectRatio(
+                  aspectRatio: 1.0,
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned.fill(
+                        child: CustomPaint(
+                          painter: CustomTimerPainter(
+                            animation: _countDownAnimation ?? _controller,
+                            fillColor: widget.fillColor,
+                            fillGradient: widget.fillGradient,
+                            ringColor: widget.ringColor,
+                            ringGradient: widget.ringGradient,
+                            strokeWidth: widget.strokeWidth,
+                            strokeCap: widget.strokeCap,
+                            isReverse: widget.isReverse,
+                            isReverseAnimation: widget.isReverseAnimation,
+                            backgroundColor: widget.backgroundColor,
+                            backgroundGradient: widget.backgroundGradient,
+                          ),
                         ),
                       ),
-                    ),
-                    widget.isTimerTextShown
-                        ? Align(
-                            alignment: FractionalOffset.center,
-                            child: Text(
-                              time,
-                              style: widget.textStyle ??
-                                  const TextStyle(
-                                    fontSize: 16.0,
-                                    color: Colors.black,
-                                  ),
-                              textAlign: widget.textAlign,
-                            ),
-                          )
-                        : widget.centerWidget,
-                  ],
+                      widget.isTimerTextShown
+                          ? Align(
+                              alignment: FractionalOffset.center,
+                              child: Text(
+                                time,
+                                style: widget.textStyle ??
+                                    const TextStyle(
+                                      fontSize: 16.0,
+                                      color: Colors.black,
+                                    ),
+                                textAlign: widget.textAlign,
+                              ),
+                            )
+                          : widget.centerWidget,
+                    ],
+                  ),
                 ),
               ),
-            );
+              Align(
+                alignment: FractionalOffset.center,
+                child: Text(
+                  time,
+                  style: widget.textStyle ??
+                      const TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.black,
+                      ),
+                  textAlign: widget.textAlign,
+                ),
+              )
+            ],
+          );
+
           },
         ),
       ),
-      Align(
-        alignment: FractionalOffset.center,
-        child: Text(
-          time,
-          style: widget.textStyle ??
-              const TextStyle(
-                fontSize: 16.0,
-                color: Colors.black,
-              ),
-          textAlign: widget.textAlign,
-        ),
-      )
     ],
   );
 }
